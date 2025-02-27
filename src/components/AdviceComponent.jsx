@@ -9,30 +9,32 @@ function AdviceComponent() {
   const [adviceNumber, setAdviceNumber] = useState(0);
   const [advice, setAdvice] = useState("")
 
-  const GetAdvice = async(e) => {
+  const GetAdvice = async() => {
     const response = await FetchAdvice();
     setAdviceNumber(response.slip.id);
     setAdvice(response.slip.advice);
   }
 
+  GetAdvice();
 
   return (
-    <div className="bg-dark-grayish-blue flex flex-col items-center pt-10 px-10 rounded-xl">
+    <div className="bg-dark-grayish-blue flex flex-col items-center pt-10 px-5 sm:px-10 rounded-xl">
       <div
         style={{ fontFamily: "Manrope" }}
-        className="relative flex flex-col items-center gap-10 w-[444px]"
+        className="relative flex flex-col items-center gap-5 w-[295px] sm:w-[444px]"
       >
         {
           adviceNumber > 0 ?
-          <h1 className="text-neon-green font-thin">ADVICE # {adviceNumber}</h1> :
-          <h1 className="text-neon-green font-thin">ADVICE # {adviceNumber}</h1>
+          <h1 className="text-neon-green font-thin tracking-[0.3rem] text-xs">ADVICE # {adviceNumber}</h1> :
+          <h1 className="text-neon-green font-thin tracking-[0.3rem] text-xs">ADVICE # {adviceNumber}</h1>
         }
         {
           advice != "" ?
           <h2 className="text-light-cyan text-[28px] inline-flex text-center">"{advice}"</h2> :
           <h2 className="text-light-cyan text-[28px] inline-flex text-center">"Quote"</h2>
         }
-        <img src={dividerDesktop} alt="dice icon" />
+        <img className='mt-5 hidden sm:block' src={dividerDesktop} alt="dice icon" />
+        <img className='mt-5 sm:hidden' src={dividerMobile} alt="dice icon" />
       </div>
         <div className="relative bg-neon-green rounded-full p-6 top-9 hover:shadow-[0_0_25px] hover:shadow-neon-green hover:cursor-pointer"
         onClick={GetAdvice}
