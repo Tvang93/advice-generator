@@ -25,16 +25,16 @@ function AdviceComponent() {
       >
         {
           adviceNumber > 0 ?
-          <h1 className="text-neon-green font-thin tracking-[0.3rem] text-xs">ADVICE # {adviceNumber}</h1> :
-          <h1 className="text-neon-green font-thin tracking-[0.3rem] text-xs">ADVICE # {adviceNumber}</h1>
+          <small className="text-neon-green font-thin tracking-[0.3rem]">ADVICE # {adviceNumber}</small> :
+          <small className="text-neon-green font-thin tracking-[0.3rem]">ADVICE # {adviceNumber}</small>
         }
         {
           advice != "" ?
-          <h2 className="text-light-cyan text-[28px] inline-flex text-center">"{advice}"</h2> :
-          <h2 className="text-light-cyan text-[28px] inline-flex text-center">"Quote"</h2>
+          <h2 className="text-light-cyan text-[28px] inline-flex text-center"><q>{advice}</q></h2> :
+          <h2 className="text-light-cyan text-[28px] inline-flex text-center"><q>Quote</q></h2>
         }
-        <img className='mt-5 hidden sm:block' src={dividerDesktop} alt="dice icon" />
-        <img className='mt-5 sm:hidden' src={dividerMobile} alt="dice icon" />
+        <img className='mt-5 hidden sm:block' src={dividerDesktop} alt="divider desktop" />
+        <img className='mt-5 sm:hidden' src={dividerMobile} alt="divider mobile" />
       </div>
         <div className="relative bg-neon-green rounded-full p-6 top-9 hover:shadow-[0_0_25px] hover:shadow-neon-green hover:cursor-pointer"
         onClick={GetAdvice}
