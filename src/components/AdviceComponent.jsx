@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import dice from "../assets/images/icon-dice.svg";
 import dividerDesktop from "../assets/images/pattern-divider-desktop.svg";
 import dividerMobile from "../assets/images/pattern-divider-mobile.svg";
@@ -15,7 +15,10 @@ function AdviceComponent() {
     setAdvice(response.slip.advice);
   }
 
-  GetAdvice();
+  useEffect(() => {
+    GetAdvice();
+  }, [])
+  
 
   return (
     <div className="bg-dark-grayish-blue flex flex-col items-center pt-10 px-5 sm:px-10 rounded-xl">
